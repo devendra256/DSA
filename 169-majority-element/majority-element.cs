@@ -1,6 +1,9 @@
 public class Solution {
     public int MajorityElement(int[] nums) {
         
+        // Time = O(n)
+        // Space = O(n)
+
         Dictionary<int, int> map = new Dictionary<int, int>();
 
         foreach(var num in nums) {
@@ -12,7 +15,7 @@ public class Solution {
         }
         int ans = -1;
         foreach(var pair in map) {
-            if(map[pair.Key] > (nums.Length / 2))
+            if(pair.Value > (nums.Length / 2))
                 ans = pair.Key;
         }
         return ans;
