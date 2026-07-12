@@ -1,23 +1,14 @@
 public class Solution {
     public int MajorityElement(int[] nums) {
-        
-        // Time = O(n)
-        // Space = O(n)
 
-        Dictionary<int, int> map = new Dictionary<int, int>();
+        // due to Array.Sory(nums) method both 
 
-        foreach(var num in nums) {
-            if(map.ContainsKey(num)) {
-                map[num]++;
-            } else {
-                map.Add(num, 1);
-            }
-        }
-        int ans = -1;
-        foreach(var pair in map) {
-            if(pair.Value > (nums.Length / 2))
-                ans = pair.Key;
-        }
-        return ans;
+        // Time = O(nlog n)
+        // Space = O(log n)
+
+        Array.Sort(nums);
+
+        return nums[nums.Length / 2];
+
     }
 }
