@@ -1,14 +1,22 @@
 public class Solution {
     public int MajorityElement(int[] nums) {
 
-        // due to Array.Sory(nums) method both 
+        int majority = nums[0];
+        int votes = 1;
 
-        // Time = O(nlog n)
-        // Space = O(log n)
+        for(int i = 1; i < nums.Length; i++) {
 
-        Array.Sort(nums);
-
-        return nums[nums.Length / 2];
+            if(majority == nums[i]) {
+                votes++;
+            } else {
+                votes--;
+                if(votes == 0) {
+                    votes = 1;
+                    majority = nums[i];
+                }
+            }
+        }
+        return majority;
 
     }
 }
